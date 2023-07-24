@@ -7,6 +7,7 @@ void setup() {
   size(600, 600, P3D);
   noLights();
   stroke(10);
+  frameRate(120);
   
   camera(240, 300, (height/2) / tan(PI/6), 0, 0, 0, 0, -1, 0);
   //camera(0, 0, (height/2) / tan(PI/6), 0, 0, 0, 0, -1, 0);
