@@ -7,7 +7,7 @@ list of issues / goals:
 
 5) impliment movement of sides only
 
-6) impliment and execute a generated scramble
+6) impliment and execute a generated scramble <-- being worked on
 
 DONE 7) add prime moves
 
