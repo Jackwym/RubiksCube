@@ -8,7 +8,7 @@ list of issues / goals:
 
 5) impliment and execute a generated scramble
 
-6) add prime moves
+6) add prime moves <-- (being worked on)
 
 7) (maybe) create a bot to undo the scramble
 
