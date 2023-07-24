@@ -9,10 +9,12 @@ list of issues / goals:
 
 6) impliment and execute a generated scramble
 
-7) add prime moves <-- (being worked on)
+DONE 7) add prime moves
 
-8) (maybe) create a bot to undo the scramble
+8) add 2 moves (e.g. R2) that can only be performed by the program, not the user (to scramble and (9)solve)
 
-9) (maybe) spin camera around the cube while it is being scrambled / solved by the bot
+9) (maybe) create a bot to undo the scramble
 
-10) (maybe) loop (8) to create a cool background for my computer :D
+10) (maybe) spin camera around the cube while it is being scrambled / solved by the bot
+
+11) (maybe) loop (8) to create a cool background for my computer :D
