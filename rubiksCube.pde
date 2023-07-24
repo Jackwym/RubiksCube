@@ -30,8 +30,8 @@ void draw() {
   c.show();
 }
 
-boolean rotating = false;
-int direction = 0;
+boolean rotating = true;
+int direction = 4;
 int axis = 0;
 int side = 0;
 
@@ -152,6 +152,7 @@ float rSpeed = 5;
 void rotateCube() {
   println(rSpeed);
   c.rotateCube(rSpeed * direction, axis, side);
+  
   if(count >= 45) {
     count = 1;
     rSpeed = 5;

@@ -54,9 +54,10 @@ class Cube {
 
   public void rotateCube(float angle, int axis, int side) {
     for (Piece p : pieces) {
-      p.rotatePiece(angle, axis);
+      if (p.getSide(axis, side)) p.rotatePiece(angle, axis);
     }
   }
+  
   boolean isSolved() {
     for(int i = 0; i < pieces.length; i++) {
       if(!pieces[i].checkPiece(solvedPieces[i])) {

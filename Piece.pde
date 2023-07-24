@@ -28,6 +28,10 @@ class Piece {
   boolean checkPiece(Piece p) {
       return p.rot.equal(rot);
   }
+  
+  boolean getSide(int axis, int side) {
+    return true;
+  }
 
   void show() {
     PVector rotation = rot.getAngles();
