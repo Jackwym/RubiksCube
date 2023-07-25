@@ -51,6 +51,8 @@ list of issues / goals:
        rSpeed *= .95;
      }
 ```
+
+However, the degredation was a blessing in disguise, as it got us out or gimbal lock(?) by being slightly off of the axes overlapping. 
    
 3) any rotations done at the beginning can be undone to show issues (first rotation of 360 degrees can be reversed with four 'r' inputs to show problems)
    note: (6) could solve this problem
