@@ -2,6 +2,35 @@ list of issues / goals:
 
 1) cube degrades over time due to floating point rounding (rotations rotate the cube slightly more than they should)
 
+   a) Attempted to solve by rounding each quaternion value to its nearest "standard" value after each turn like so:
+   ``` Java
+   // class Piece
+   void correctPiece() {
+    float[] values = rot.get();
+
+    for(int i = 0; i < values.length; i++) {
+      if(values[i] <= -0.9) {
+        values[i] = -1;
+      } else if(values[i] > -0.75 && values[i] <= -0.65) {
+        values[i] = -0.70710677;
+      } else if(values[i] > -0.55 && values[i] <= -0.45) {
+        values[i] = -0.5;  
+      } else if(values[i] > -0.01 && values[i] < 0.01) {
+        values[i] = 0;
+      } else if (values[i] > 0.45 && values[i] <= 0.55) {
+        values[i] = 0.5;
+      } else if(values[i] > 0.65 && values[i] <= 0.75) {
+       values[i] = 0.70710677;
+      } else if(values[i] > 0.9) {
+        values[i] = 1;
+      }
+    }
+
+    rot.set(values);
+   }
+   ```
+   But is causing issues with displaying pieces, I'm assuming based on the getAngles function in the Quaternion class.
+   
 3) any rotations done at the beginning can be undone to show issues (first rotation of 360 degrees can be reversed with four 'r' inputs to show problems)
    note: (6) could solve this problem
 
