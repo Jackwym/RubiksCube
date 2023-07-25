@@ -30,6 +30,8 @@ list of issues / goals:
    }
    ```
    But is causing issues with displaying pieces, I'm assuming based on the getAngles function in the Quaternion class.
+
+   b) kinda cheap but, we could subtract a small amount from the last rotation to make it turn slightly less
    
 3) any rotations done at the beginning can be undone to show issues (first rotation of 360 degrees can be reversed with four 'r' inputs to show problems)
    note: (6) could solve this problem
