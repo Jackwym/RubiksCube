@@ -59,7 +59,7 @@ However, the degredation was a blessing in disguise, as it got us out or gimbal 
 
 5) impliment movement of sides only
 
-6) impliment and execute a generated scramble <-- being worked on
+DONE 6) impliment and execute a generated scramble
 
 DONE 7) add prime moves
 
