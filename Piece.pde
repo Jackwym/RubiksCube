@@ -4,7 +4,7 @@ class Piece {
 
   public Piece(float angle, PVector axis, float s) {
     side = s;
-    rot = new Quaternion(angle, axis);
+    rot = new Quaternion(radians(angle), axis);
   }
 
   void correctPiece() {

@@ -193,7 +193,7 @@ void rotateCube() {
   c.rotateCube(rSpeed * direction, axis, side);
 
   if(count >= 45) {
-    c.correctCube();
+    c.correctCube(); // comment or uncomment here to enable and disable rotation correction
 
     count = 1;
     rSpeed = 5;
