@@ -5,7 +5,7 @@ void setup() {
   size(600, 600, P3D);
   noLights();
   stroke(10);
-  frameRate(60);
+  frameRate(Float.MAX_VALUE);
   
   camera(240, 300, (height/2) / tan(PI/6), 0, 0, 0, 0, -1, 0);
   //camera(0, 0, (height/2) / tan(PI/6), 0, 0, 0, 0, -1, 0);
@@ -191,7 +191,10 @@ float rSpeed = 5;
 void rotateCube() {
   println(rSpeed);
   c.rotateCube(rSpeed * direction, axis, side);
+
   if(count >= 45) {
+    c.correctCube();
+
     count = 1;
     rSpeed = 5;
     rotating = false;

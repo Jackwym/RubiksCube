@@ -2,14 +2,39 @@ class Piece {
   Quaternion rot;
   float side;
 
-  public Piece(float an, PVector ax, float s) {
+  public Piece(float angle, PVector axis, float s) {
     side = s;
-    rot = new Quaternion(radians(an), ax);
+    rot = new Quaternion(angle, axis);
+  }
+
+  void correctPiece() {
+    float[] values = rot.get();
+
+    for(int i = 0; i < values.length; i++) {
+      if(values[i] <= -0.9) {
+        values[i] = -1;
+      } else if(values[i] > -0.75 && values[i] <= -0.65) {
+        values[i] = -0.70710677;
+      } else if(values[i] > -0.55 && values[i] <= -0.45) {
+        values[i] = -0.5;  
+      } else if(values[i] > -0.01 && values[i] < 0.01) {
+        values[i] = 0;
+      } else if (values[i] > 0.45 && values[i] <= 0.55) {
+        values[i] = 0.5;
+      } else if(values[i] > 0.65 && values[i] <= 0.75) {
+       values[i] = 0.70710677;
+      } else if(values[i] > 0.9) {
+        values[i] = 1;
+      }
+    }
+
+    rot.set(values);
   }
 
   void rotatePiece(float angle, int axis) {
     float rad = radians(angle);
     Quaternion q = new Quaternion();
+
     switch(axis) {
       case 0:
         q = new Quaternion(rad, new PVector(1, 0, 0));

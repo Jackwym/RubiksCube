@@ -4,6 +4,7 @@ class Cube {
   float unit;
   public Cube(float u, color[] c) {
     pieces = new Piece[26];
+    unit = u;
     
     // white[0], yellow[1], red[2], orange[3], blue[4], green[5]
     // top side
@@ -55,6 +56,14 @@ class Cube {
   public void rotateCube(float angle, int axis, int side) {
     for (Piece p : pieces) {
       if (p.getSide(axis, side)) p.rotatePiece(angle, axis);
+    }
+  }
+
+  public void correctCube() {
+    for (Piece p : pieces) {
+      p.correctPiece();
+      
+      println(p.rot);
     }
   }
   

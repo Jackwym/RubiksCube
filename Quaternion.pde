@@ -39,11 +39,23 @@ public class Quaternion {
         k = -2 * atan2(x, w);
       }
     }
+    
     return new PVector(i, j, k);
   }
 
   public Boolean equal(Quaternion q) {
     return x == q.x && y == q.y && z == q.z && w == q.w;
+  }
+
+  public float[] get() {
+    return new float[] {x, y, z, w};
+  }
+
+  public void set(float[] values) {
+    x = values[0];
+    y = values[1];
+    z = values[2];
+    w = values[3];
   }
 
   public void set(float _x, float _y, float _z, float _w) {
