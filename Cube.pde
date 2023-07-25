@@ -75,4 +75,12 @@ class Cube {
     }
     return true;
   }
+  public void scrambleCube() {
+    if (rotating) return;
+    char[] moves = {'r', 'l', 'f', 'b', 'u', 'd', 'm', 'e', 's', 
+                            'R', 'L', 'F', 'B', 'U', 'D', 'M', 'E', 'S'};
+    int randIndex = (int)random(0, 18);
+    botKey(moves[randIndex]);
+    scrambleLength -= 1;
+  }
 }
