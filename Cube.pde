@@ -78,7 +78,8 @@ class Cube {
   public void scrambleCube() {
     if (rotating) return;
     char[] moves = {'r', 'l', 'f', 'b', 'u', 'd', 'm', 'e', 's', 
-                            'R', 'L', 'F', 'B', 'U', 'D', 'M', 'E', 'S'};
+                    'R', 'L', 'F', 'B', 'U', 'D', 'M', 'E', 'S', 
+                    '0', '1', '2', '3', '4', '5', '6', '7', '8'};
     int randIndex = (int)random(0, 18);
     botKey(moves[randIndex]);
     scrambleLength -= 1;
