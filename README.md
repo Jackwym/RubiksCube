@@ -65,9 +65,9 @@ DONE 6) impliment and execute a generated scramble
 
 DONE 7) add prime moves
 
-8) (maybe) add 2 moves (e.g. R2) that can only be performed by the program, not the user (to scramble and (9)solve) <-- being worked on
+DONE 8) (maybe) add 2 moves (e.g. R2) that can only be performed by the program, not the user (to scramble and (9)solve)
 
-9) (maybe) create a bot to undo the scramble
+9) (maybe) create a bot to undo the scramble <-- being worked on
 
 11) (maybe) spin camera around the cube while it is being scrambled / solved by the bot
 
