@@ -40,7 +40,7 @@ void botKey(char s) {
   switch(s) {
     case 'l':
       axis = 0;
-      direction = 1;
+      direction = 2;
       side = 0;
       break;
     case 'm':
@@ -128,6 +128,53 @@ void botKey(char s) {
     case 'B':
       axis = 2;
       direction = 1;
+      side = 2;
+      break;
+      
+    // double turns bot only
+    case '0': // l2
+      axis = 0;
+      direction = 2;
+      side = 0;
+      break;
+    case '1': // m2
+      axis = 0;
+      direction = 2;
+      side = 1;
+      break;
+    case '2': // r2
+      axis = 0;
+      direction = -2;
+      side = 2;
+      break;
+    case '3': // u2
+      axis = 1;
+      direction = 2;
+      side = 0;
+      break;
+    case '4': // e2
+      axis = 1;
+      direction = -2;
+      side = 1;
+      break;
+    case '5': // d2
+      axis = 1;
+      direction = -2;
+      side = 2;
+      break;
+    case '6': // f2
+      axis = 2;
+      direction = -2;
+      side = 0;
+      break;
+    case '7': // s2
+      axis = 2;
+      direction = 2;
+      side = 1;
+      break;
+    case '8': // b2
+      axis = 2;
+      direction = 2;
       side = 2;
       break;
     default:
