@@ -55,100 +55,11 @@ int side = 0;
 
 void botKey(char s) {
   if (rotating) return;
+  
+  key = s;
+  keyPressed();
+  
   switch(s) {
-    case 'l':
-      axis = 0;
-      direction = 1;
-      side = 0;
-      break;
-    case 'm':
-      axis = 0;
-      direction = 1;
-      side = 1;
-      break;
-    case 'r':
-      axis = 0;
-      direction = -1;
-      side = 2;
-      break;
-    case 'u':
-      axis = 1;
-      direction = 1;
-      side = 0;
-      break;
-    case 'e':
-      axis = 1;
-      direction = -1;
-      side = 1;
-      break;
-    case 'd':
-      axis = 1;
-      direction = -1;
-      side = 2;
-      break;
-    case 'f':
-      axis = 2;
-      direction = 1;
-      side = 0;
-      break;
-    case 's':
-      axis = 2;
-      direction = 1;
-      side = 1;
-      break;
-    case 'b':
-      axis = 2;
-      direction = -1;
-      side = 2;
-      break;
-      
-        // primes denoted by capital letters
-    case 'L':
-      axis = 0;
-      direction = -1;
-      side = 0;
-      break;
-    case 'M':
-      axis = 0;
-      direction = -1;
-      side = 1;
-      break;
-    case 'R':
-      axis = 0;
-      direction = 1;
-      side = 2;
-      break;
-    case 'U':
-      axis = 1;
-      direction = -1;
-      side = 0;
-      break;
-    case 'E':
-      axis = 1;
-      direction = 1;
-      side = 1;
-      break;
-    case 'D':
-      axis = 1;
-      direction = 1;
-      side = 2;
-      break;
-    case 'F':
-      axis = 2;
-      direction = -1;
-      side = 0;
-      break;
-    case 'S':
-      axis = 2;
-      direction = -1;
-      side = 1;
-      break;
-    case 'B':
-      axis = 2;
-      direction = 1;
-      side = 2;
-      break;
-      
     // double turns bot only
     case '0': // l2
       axis = 0;
@@ -198,6 +109,8 @@ void botKey(char s) {
     default:
       return;
   }
+  
+  println(s);
   
   rotating = true;
 }
