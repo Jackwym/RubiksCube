@@ -55,7 +55,7 @@ list of issues / goals:
 However, the degredation was a blessing in disguise, as it got us out or gimbal lock(?) by being slightly off of the axes overlapping. changing the .056 to .03 is the best in-between solution i could find. 
    
 3) any rotations done at the beginning can be undone to show issues (first rotation of 360 degrees can be reversed with four 'r' inputs to show problems)
-   note: (6) could solve this problem
+   note: (6) could solve this problem <-- being looked into
 
 5) impliment movement of sides only <-- this one's all you Justin
 
@@ -69,6 +69,6 @@ DONE 8) (maybe) add 2 moves (e.g. R2) that can only be performed by the program,
 
 DONE 9) (maybe) create a bot to undo the scramble
 
-11) (maybe) spin camera around the cube while it is being scrambled / solved by the bot <-- being worked on
+DONE 11) (maybe) spin camera around the cube while it is being scrambled / solved by the bot
 
 12) (maybe) loop (8) to create a cool background for my computer :D
