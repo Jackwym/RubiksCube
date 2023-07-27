@@ -4,7 +4,6 @@ class Cube {
   float unit;
   public Cube(float u, color[] c) {
     pieces = new Piece[26];
-    unit = u;
     
     // white[0], yellow[1], red[2], orange[3], blue[4], green[5]
     // top side
@@ -56,17 +55,9 @@ class Cube {
   public void rotateCube(float angle, int axis, int side) {
     for (Piece p : pieces) {
       if (p.getSide(axis, side)) p.rotatePiece(angle, axis);
+    
     }
   }
-
-  public void correctCube() {
-    for (Piece p : pieces) {
-      p.correctPiece();
-      
-      println(p.rot);
-    }
-  }
-  
   boolean isSolved() {
     for(int i = 0; i < pieces.length; i++) {
       if(!pieces[i].checkPiece(solvedPieces[i])) {
@@ -75,13 +66,92 @@ class Cube {
     }
     return true;
   }
-  public void scrambleCube() {
-    if (rotating) return;
-    char[] moves = {'r', 'l', 'f', 'b', 'u', 'd', 'm', 'e', 's', 
+  
+char[] moves = {'r', 'l', 'f', 'b', 'u', 'd', 'm', 'e', 's', 
                     'R', 'L', 'F', 'B', 'U', 'D', 'M', 'E', 'S', 
                     '0', '1', '2', '3', '4', '5', '6', '7', '8'};
-    int randIndex = (int)random(0, 18);
+  public void scrambleCube() {
+    if (rotating) return;
+    int randIndex = (int)random(0, 27);
     botKey(moves[randIndex]);
+    scramble[x] = moves[randIndex];
     scrambleLength -= 1;
+    if (scrambleLength == 0) {
+      scrambling = false;
+      // uncomment when sides turn (.isSolved is always true)
+      // scrambleLength = 20;
+    }
+    x += 1;
+  }
+  public void reverseScramble() {
+    for (int i = 0; i < x; i++) {
+      if (Character.isLowerCase(scramble[i])) {
+        switch(scramble[i]) {
+          case 'r':
+            scramble[i] = 'R';
+            break;
+          case 'l':
+            scramble[i] = 'L';
+            break;
+          case 'f':
+            scramble[i] = 'F';
+            break;
+          case 'b':
+            scramble[i] = 'B';
+            break;
+          case 'u':
+            scramble[i] = 'U';
+            break;
+          case 'd':
+            scramble[i] = 'D';
+            break;
+          case 'm':
+            scramble[i] = 'M';
+            break;
+          case 'e':
+            scramble[i] = 'E';
+            break;
+          case 's':
+            scramble[i] = 'S';
+            break;
+          default:
+            break;
+        }
+        continue;
+      }
+      if (Character.isUpperCase(scramble[i])) {
+        switch(scramble[i]) {
+          case 'R':
+            scramble[i] = 'r';
+            break;
+          case 'L':
+            scramble[i] = 'l';
+            break;
+          case 'F':
+            scramble[i] = 'f';
+            break;
+          case 'B':
+            scramble[i] = 'b';
+            break;
+          case 'U':
+            scramble[i] = 'u';
+            break;
+          case 'D':
+            scramble[i] = 'd';
+            break;
+          case 'M':
+            scramble[i] = 'm';
+            break;
+          case 'E':
+            scramble[i] = 'e';
+            break;
+          case 'S':
+            scramble[i] = 's';
+            break;
+          default:
+            break;
+        }
+      }
+    }
   }
 }
