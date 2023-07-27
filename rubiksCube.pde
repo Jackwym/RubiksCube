@@ -2,12 +2,14 @@ color[] COLORS = new color[] {color(255, 255, 255), color(232, 255, 117), color(
 Cube c;
 boolean scrambling;
 int scrambleLength = 20;
+char[] scramble = new char[20];
+int x = 0;
 
 void setup() {
   size(600, 600, P3D);
   noLights();
   stroke(10);
-  frameRate(Float.MAX_VALUE);
+  frameRate(120);
   
   camera(240, 300, (height/2) / tan(PI/6), 0, 0, 0, 0, -1, 0);
   //camera(0, 0, (height/2) / tan(PI/6), 0, 0, 0, 0, -1, 0);
@@ -16,16 +18,22 @@ void setup() {
 
 void draw() {
   background(0);
-  
   if (rotating) {
     rotateCube();
   }
-  if (c.isSolved()) {
-      if (scrambleLength > 0) {
-        scrambling = true;
-        c.scrambleCube();
-      }
-    }
+  if (c.isSolved() && scrambleLength > 0) {
+    scrambling = true;
+    c.scrambleCube();
+  }
+  if (x == 20) {
+    c.reverseScramble();  
+    x -= 1;
+  }
+
+  if (x >= 0 && !rotating && !scrambling) {
+    botKey(scramble[x]);
+    x -= 1;
+  }
   c.show();
 }
 
@@ -40,7 +48,7 @@ void botKey(char s) {
   switch(s) {
     case 'l':
       axis = 0;
-      direction = 2;
+      direction = 1;
       side = 0;
       break;
     case 'm':
@@ -70,7 +78,7 @@ void botKey(char s) {
       break;
     case 'f':
       axis = 2;
-      direction = -1;
+      direction = 1;
       side = 0;
       break;
     case 's':
@@ -80,7 +88,7 @@ void botKey(char s) {
       break;
     case 'b':
       axis = 2;
-      direction = 1;
+      direction = -1;
       side = 2;
       break;
       
@@ -183,7 +191,6 @@ void botKey(char s) {
   
   rotating = true;
 }
-      
 
 void keyPressed() {
   if (rotating) return;
@@ -292,17 +299,19 @@ float count = 1;
 float rSpeed = 5;
 
 void rotateCube() {
-  println(rSpeed);
   c.rotateCube(rSpeed * direction, axis, side);
-
   if(count >= 45) {
-    c.correctCube(); // comment or uncomment here to enable and disable rotation correction
-
     count = 1;
     rSpeed = 5;
     rotating = false;
-  } else {
-    count++;
-    rSpeed *= .95;
-  }
+  } 
+  //else if (count == 44) {
+  //  count++;
+  //   rSpeed *= .95;
+  //   rSpeed -= .056;
+  //}
+  else {
+     count++;
+     rSpeed *= .95;
+   }
 }
