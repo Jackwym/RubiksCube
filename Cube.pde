@@ -154,4 +154,15 @@ char[] moves = {'r', 'l', 'f', 'b', 'u', 'd', 'm', 'e', 's',
       }
     }
   }
+public void rotateCamera() {
+    orbitRadius = 500;
+    ypos = 300;
+    xpos = cos(radians(camRotation))*orbitRadius;
+    zpos = sin(radians(camRotation))*orbitRadius;
+    
+    camera(xpos, ypos, zpos, 0, 0, 0, 0, -1, 0);
+    
+    camRotation += .2;
+    if (camRotation == 360.00357) camRotation = 0;
+  }
 }
