@@ -1,9 +1,18 @@
 color[] COLORS = new color[] {color(255, 255, 255), color(232, 255, 117), color(255, 0, 0), color(237, 156, 5), color(0, 0, 255), color(0, 255, 0)};
 Cube c;
+
+// scramble stuff
 boolean scrambling;
 int scrambleLength = 20;
 char[] scramble = new char[20];
 int x = 0;
+
+// camera rotation stuff
+float camRotation;
+float orbitRadius;
+float ypos;
+float xpos;
+float zpos;
 
 void setup() {
   size(600, 600, P3D);
@@ -18,6 +27,7 @@ void setup() {
 
 void draw() {
   background(0);
+  c.rotateCamera();
   if (rotating) {
     rotateCube();
   }
