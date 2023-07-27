@@ -67,8 +67,8 @@ DONE 7) add prime moves
 
 DONE 8) (maybe) add 2 moves (e.g. R2) that can only be performed by the program, not the user (to scramble and (9)solve)
 
-9) (maybe) create a bot to undo the scramble <-- being worked on
+DONE 9) (maybe) create a bot to undo the scramble
 
-11) (maybe) spin camera around the cube while it is being scrambled / solved by the bot
+11) (maybe) spin camera around the cube while it is being scrambled / solved by the bot <-- being worked on
 
 12) (maybe) loop (8) to create a cool background for my computer :D
