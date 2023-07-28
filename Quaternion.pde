@@ -28,6 +28,19 @@ public class Quaternion {
     j = asin(2 * (w * y - z * x));
     k = atan2(2 * (w * z + x * y), 1 - 2 * (y * y + z * z));
     
+    if (.01 > j - HALF_PI &&  j - HALF_PI > -.01) { // if j is close to-PI / 2
+      i = 0;
+      k = -2 * atan2(x, w);
+      return new PVector(i, j, k);
+    }
+    
+    if (.01 > j + HALF_PI &&  j + HALF_PI > -.01) { // if j is close to -PI / 2
+      i = 0;
+      k = 2 * atan2(x, w);
+      return new PVector(i, j, k);
+    }
+    
+    
     if(Float.isNaN(j)) {
       if(w * y - z * x < -.5){
         i = 0;
@@ -39,7 +52,6 @@ public class Quaternion {
         k = -2 * atan2(x, w);
       }
     }
-    
     return new PVector(i, j, k);
   }
 
