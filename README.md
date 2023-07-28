@@ -54,8 +54,11 @@ list of issues / goals:
 
 However, the degredation was a blessing in disguise, as it got us out or gimbal lock(?) by being slightly off of the axes overlapping. changing the .056 to .03 is the best in-between solution i could find. 
    
-3) any rotations done at the beginning can be undone to show issues (first rotation of 360 degrees can be reversed with four 'r' inputs to show problems)
-   note: (6) could solve this problem <-- being looked into
+DONE 3) any rotations done at the beginning can be undone to show issues (first rotation of 360 degrees can be reversed with four 'r' inputs to show problems)
+   note: (6) could solve this problem
+
+   a)
+   checked for if j was near pi / 2 or -pi / 2, and followed instructions in the document to fix it. i did not use correctPiece in my testing, but instead tried my method, but it should work either way
 
 5) impliment movement of sides only <-- this one's all you Justin
 
