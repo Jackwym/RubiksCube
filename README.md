@@ -80,3 +80,6 @@ DONE 10) (maybe) create a bot to undo the scramble
 DONE 11) (maybe) spin camera around the cube while it is being scrambled / solved by the bot
 
 12) (maybe) loop (8) to create a cool background for my computer :D
+
+
+I've been pretty busy recently with my upcoming move to college so I don't know if I can help much more with this, but I found my project files for when I made a rubik's cube in cad for a school project, so I put them in this repository. Good luck! - Justin
