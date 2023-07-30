@@ -1,3 +1,6 @@
+questions: 
+what is the isAbout function going to be used for / is the turning of the cube sides being worked on (and if so, how has it been made / how does it work so far)
+
 list of issues / goals:
 
 1) cube degrades over time due to floating point rounding (rotations rotate the cube slightly more than they should)
@@ -60,17 +63,19 @@ DONE 3) any rotations done at the beginning can be undone to show issues (first 
    a)
    checked for if j was near pi / 2 or -pi / 2, and followed instructions in the document to fix it. i did not use correctPiece in my testing, but instead tried my method, but it should work either way
 
-5) impliment movement of sides only <-- this one's all you Justin
+4) impliment movement of sides only <-- this one's all you Justin
 
-6) add 'x' and 'y' moves
+5) add 'x' and 'y' moves
 
-DONE 6) impliment and execute a generated scramble
+6) make the bot moves turn faster than the user <-- being worked on
 
-DONE 7) add prime moves
+DONE 7) impliment and execute a generated scramble
 
-DONE 8) (maybe) add 2 moves (e.g. R2) that can only be performed by the program, not the user (to scramble and (9)solve)
+DONE 8) add prime moves
 
-DONE 9) (maybe) create a bot to undo the scramble
+DONE 9) (maybe) add 2 moves (e.g. R2) that can only be performed by the program, not the user (to scramble and (9)solve)
+
+DONE 10) (maybe) create a bot to undo the scramble
 
 DONE 11) (maybe) spin camera around the cube while it is being scrambled / solved by the bot
 
