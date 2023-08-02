@@ -59,10 +59,6 @@ public class Quaternion {
     return x == q.x && y == q.y && z == q.z && w == q.w;
   }
 
-  public boolean isAbout(Quaternion q , float tolerance) {
-    return abs(x - q.x) < tolerance && abs(y - q.y) < tolerance && abs(z - q.z) < tolerance && abs(w - q.w) < tolerance;
-  }
-
   public float[] get() {
     return new float[] {x, y, z, w};
   }
