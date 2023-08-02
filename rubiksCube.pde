@@ -14,6 +14,18 @@ float ypos;
 float xpos;
 float zpos;
 
+// rotation floats
+float count = 1;
+float speed = 5;
+float definiteSpeed = 5;
+boolean botating;
+
+// setup globals
+boolean rotating = false;
+int direction = 0;
+int axis = 0;
+int side = 0;
+
 void setup() {
   size(600, 600, P3D);
   noLights();
@@ -47,15 +59,9 @@ void draw() {
   c.show();
 }
 
-boolean rotating = true;
-int direction = 4;
-int axis = 0;
-int side = 0;
-
-
 void botKey(char s) {
   if (rotating) return;
-  
+  botating = true;
   key = s;
   keyPressed();
   
@@ -109,15 +115,19 @@ void botKey(char s) {
     default:
       return;
   }
-  
-  println(s);
-  
   rotating = true;
+  botating = false;
 }
 
 void keyPressed() {
   if (rotating) return;
   // if (c.isSolved()) return;
+  speed = 5;
+  definiteSpeed = 5;
+  if (botating) {
+    speed = 10;
+    definiteSpeed = 10;
+  }
   switch(key) {
     case 'l':
       axis = 0;
@@ -214,27 +224,24 @@ void keyPressed() {
     default:
       return;
   }
-  
   rotating = true;
+  botating = false;
 }
 
-float count = 1;
-float rSpeed = 5;
-
 void rotateCube() {
-  c.rotateCube(rSpeed * direction, axis, side);
-  if(count >= 45) {
+  c.rotateCube(speed * direction, axis, side);
+  if(count >= 70 - 5 * definiteSpeed) {
     count = 1;
-    rSpeed = 5;
     rotating = false;
   } 
-  //else if (count == 44) {
-  //  count++;
-  //   rSpeed *= .95;
-  //   rSpeed -= .056;
-  //}
+  else if (count == 69 - 5 * definiteSpeed) {
+    speed *= 0.9965 - (0.0465 * (definiteSpeed / 5));
+    speed -= 0.1006221 - (0.0446221 * (definiteSpeed / 5));
+    count++;
+    c.rotateCubePosition();
+  }
   else {
+     speed *= 0.9965 - (0.0465 * (definiteSpeed / 5));
      count++;
-     rSpeed *= .95;
    }
 }
