@@ -13,6 +13,7 @@ float orbitRadius;
 float ypos;
 float xpos;
 float zpos;
+boolean cameraStagnant = false;
 
 // rotation floats
 float count = 1;
@@ -30,6 +31,7 @@ void setup() {
   size(600, 600, P3D);
   noLights();
   stroke(10);
+  strokeWeight(5);
   frameRate(120);
   
   camera(240, 300, (height/2) / tan(PI/6), 0, 0, 0, 0, -1, 0);
@@ -43,20 +45,21 @@ void draw() {
   if (rotating) {
     rotateCube();
   }
-  if (c.isSolved() && scrambleLength > 0) {
+  if (x == 0) scrambleLength = 20;
+  if (scrambleLength > 0) {
     scrambling = true;
     c.scrambleCube();
   }
   if (x == 20) {
     c.reverseScramble();  
-    x -= 1;
   }
 
-  if (x >= 0 && !rotating && !scrambling) {
-    botKey(scramble[x]);
-    x -= 1;
-  }
+  //if (x > 0 && !rotating && !scrambling) {
+  //  x -=1;
+  //  botKey(scramble[x]);
+  //}
   c.show();
+  
 }
 
 void botKey(char s) {
@@ -120,8 +123,8 @@ void botKey(char s) {
 }
 
 void keyPressed() {
+  if (key == 'c') cameraStagnant = !cameraStagnant;
   if (rotating) return;
-  // if (c.isSolved()) return;
   speed = 5;
   definiteSpeed = 5;
   if (botating) {
