@@ -163,7 +163,13 @@ char[] moves = {'r', 'l', 'f', 'b', 'u', 'd', 'm', 'e', 's',
       }
     }
   }
-public void rotateCamera() {
+  public void rotateCamera() {
+    if (cameraStagnant) return;
+    // code below sets the camera to an objective position rather than stopping the camera rotation
+    //if (cameraStagnant) { 
+    //  camera(240, 300, (height/2) / tan(PI/6), 0, 0, 0, 0, -1, 0);
+    //  return;
+    //} 
     orbitRadius = 500;
     ypos = 300;
     xpos = cos(radians(camRotation))*orbitRadius;
@@ -171,7 +177,7 @@ public void rotateCamera() {
     
     camera(xpos, ypos, zpos, 0, 0, 0, 0, -1, 0);
     
-    camRotation += .2;
+    camRotation += 0.2;
     if (camRotation == 360.00357) camRotation = 0;
   }
 }
