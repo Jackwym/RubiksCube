@@ -3,17 +3,18 @@ Cube c;
 
 // scramble stuff
 boolean scrambling;
+//boolean botIsScrambling = true;
 int scrambleLength = 20;
 char[] scramble = new char[20];
 int x = 0;
 
 // camera rotation stuff
+boolean cameraRotating = true;
 float camRotation;
 float orbitRadius;
 float ypos;
 float xpos;
 float zpos;
-boolean cameraStagnant = false;
 
 // rotation floats
 float count = 1;
@@ -31,11 +32,10 @@ void setup() {
   size(600, 600, P3D);
   noLights();
   stroke(10);
-  strokeWeight(5);
+  strokeWeight(2);
   frameRate(120);
   
   camera(240, 300, (height/2) / tan(PI/6), 0, 0, 0, 0, -1, 0);
-  //camera(0, 0, (height/2) / tan(PI/6), 0, 0, 0, 0, -1, 0);
   c = new Cube(100, COLORS);
 }
 
@@ -50,10 +50,11 @@ void draw() {
     scrambling = true;
     c.scrambleCube();
   }
-  if (x == 20) {
-    c.reverseScramble();  
-  }
-
+  //if (!botIsScrambling) {
+    //if (x == 20) {
+    //  c.reverseScramble();  
+    //}
+  //}
   //if (x > 0 && !rotating && !scrambling) {
   //  x -=1;
   //  botKey(scramble[x]);
@@ -123,8 +124,10 @@ void botKey(char s) {
 }
 
 void keyPressed() {
-  if (key == 'c') cameraStagnant = !cameraStagnant;
+  if (key == 'c') cameraRotating = !cameraRotating;
+  //if (key == '0') botIsScrambling = !botIsScrambling;
   if (rotating) return;
+  // if (c.isSolved()) return;
   speed = 5;
   definiteSpeed = 5;
   if (botating) {
@@ -132,6 +135,9 @@ void keyPressed() {
     definiteSpeed = 10;
   }
   switch(key) {
+    //case '0':
+    //  botIsScrambling = !botIsScrambling;
+    //  break;
     case 'l':
       axis = 0;
       direction = 1;
